@@ -143,3 +143,14 @@ inner join reservation
 on reservation.flightid = flight.id
 group by Route
 order by round(avg(reservation.cost)) desc;
+
+/*
+14) List the average miles per flight by airline.
+*/
+
+select airline.name Name, avg(flight.miles) 'Avg Miles Per Flight'
+from airline
+inner join flight
+on flight.airlineid = airline.id
+group by airline.name
+order by airline.name;
